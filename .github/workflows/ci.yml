@@ -1,0 +1,31 @@
+# used Nektos/act to test this workflow locally
+# command to run this workflow locally - used with M1 Mac - remove --container-architecture linux/amd64 if using x86
+# act -j main --container-architecture linux/amd64 -v --privileged
+
+name: Default CI Workflow
+on:
+  # will replace workflow_dispatch with push and pull_request
+  # once the workflow is ready to be used
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     # Change this if your primary branch is not main
+  #     - develop
+  # pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+
+      - run: npx nx affected -t lint
