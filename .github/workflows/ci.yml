@@ -4,7 +4,6 @@
 
 name: Default CI Workflow
 on:
-  # will replace workflow_dispatch with pull_request
   workflow_dispatch:
   pull_request:
 
