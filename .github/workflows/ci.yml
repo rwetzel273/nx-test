@@ -21,5 +21,7 @@ jobs:
         with:
           cache: 'npm'
       - run: npm ci
-
-      - run: npx nx affected -t lint
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        id: setSHAs
+        uses: nrwl/nx-set-shas@v4
+      - run: npx nx affected -t lint --base=${{ steps.setSHAs.outputs.baseSHA }} --head=${{ steps.setSHAs.outputs.headSHA }}
