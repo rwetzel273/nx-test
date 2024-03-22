@@ -32,7 +32,7 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ github.ref_slug }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ steps.branch_name.outputs.branch }}
             ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ github.sha }}
       
           
