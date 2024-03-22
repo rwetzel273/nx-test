@@ -30,6 +30,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ github.ref_slug }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ github.sha }}
       
           
