@@ -17,5 +17,12 @@ jobs:
       - run: | 
           npm ci 
           npx nx run nx-test:build
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
       
           
