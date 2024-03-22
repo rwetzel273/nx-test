@@ -3,6 +3,21 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/nx-test",
   "projectType": "application",
-  "targets": {},
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/nx-test"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/nx-test"
+        },
+        "production": {}
+      }
+    },
+  },
   "tags": []
 }
