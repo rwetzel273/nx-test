@@ -22,7 +22,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "docker buildx build -f ./Dockerfile . --push -t rwpf/nx-test:latest --push rwpf/nx-test:develop"
+          "docker buildx build -f ./Dockerfile . --tag rwpf/nx-test:latest --push rwpf/nx-test:develop --push"
         ]
       }
     },
