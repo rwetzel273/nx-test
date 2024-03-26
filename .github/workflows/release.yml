@@ -6,6 +6,9 @@ env:
 jobs:
   main: 
     runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      actions: "read"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
