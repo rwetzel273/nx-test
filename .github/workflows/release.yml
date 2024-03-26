@@ -28,7 +28,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Build and push
         run: |
-          npx nx affected:build
-          npx nx affected:container
+          npx nx affected:build nx-test
+          npx nx affected:container nx-test
       
           
