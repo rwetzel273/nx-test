@@ -28,14 +28,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ steps.branch_name.outputs.branch }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/nx-test:${{ github.sha }}
+        run: npx nx run affected:container 
       
           
