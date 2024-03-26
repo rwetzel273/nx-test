@@ -29,7 +29,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Build and push
         run: |
-          npx nx affected -t build --base=$BEFORE_SHA
-          npx nx affected -t container --base=$BEFORE_SHA
+          npx nx affected -t build -- --base=$BEFORE_SHA
+          npx nx affected -t container -- --base=$BEFORE_SHA
       
           
