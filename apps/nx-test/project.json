@@ -22,7 +22,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "docker buildx build -f ./Dockerfile . --tag nx-test:latest {args.ecrAddress}/nx-test:latest --tag nx-test:latest {args.ecrAddress}/nx-test:develop --tag push {args.ecrAddress}/nx-test:latest --tag push {args.ecrAddress}/nx-test:develop"
+          "docker buildx build -f ./Dockerfile . --tag {args.ecrAddress}/nx-test:latest --tag {args.ecrAddress}/nx-test:develop"
         ]
       }
     },
