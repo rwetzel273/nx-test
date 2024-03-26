@@ -35,6 +35,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Build and push
-        run: npx nx affected -t build container ---base=${{ github.event.before }} --head=${{ github.sha }}
+        run: npx nx affected -t build container ---base=origin/${{ steps.branch_name.outputs.branch }} --head=${{ github.sha }}
       
           
