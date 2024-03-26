@@ -19,5 +19,18 @@
       }
     },
   },
+  "container": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "commands": [
+          "docker build -t  -f ./Dockerfile .",
+          "docker tag nx-test:latest {args.ecrAddress}/nx-test:latest",
+          "docker tag nx-test:latest {args.ecrAddress}/nx-test:develop",
+          "docker push {args.ecrAddress}/nx-test:latest",
+          "docker push {args.ecrAddress}/nx-test:develop"
+        ]
+      }
+    },
   "tags": []
 }
