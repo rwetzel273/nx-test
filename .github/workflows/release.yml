@@ -23,8 +23,6 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
         uses: nrwl/nx-set-shas@v4
-        with:
-          main-branch-name: ${{ env.BASE_BRANCH }}
       - name: Get branch name
         id: branch_name
         run: echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
