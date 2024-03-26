@@ -18,10 +18,8 @@
         "production": {}
       }
     },
-  },
-  "container": {
+    "container": {
       "executor": "nx:run-commands",
-      "dependsOn": ["build"],
       "options": {
         "commands": [
           "docker build -t  -f ./Dockerfile .",
@@ -32,5 +30,6 @@
         ]
       }
     },
+  },
   "tags": []
 }
