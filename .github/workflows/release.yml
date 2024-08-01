@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z]+(\.[0-9A-Za-z]+)*)?(\+[0-9A-Za-z]+(\.[0-9A-Za-z]+)*)?$' # Push events to a tag with a semantic version format
+      - '[0-9]+.[0-9]+.[0-9]+*' # Push events to a tag with a semantic version format
 env:
   BASE_BRANCH: ${{ github.base_ref }}
 jobs:
