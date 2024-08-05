@@ -14,10 +14,6 @@ jobs:
       contents: "read"
       actions: "read"
     steps:
-      - name: Debug Tag
-        run: |
-          GITHUB_TAG="${{ github.ref }}"
-          echo "Tag: $GITHUB_TAG"
       - name: Checkout code
         uses: actions/checkout@v4
         with:
